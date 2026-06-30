@@ -4,6 +4,16 @@ const CATEGORIES = ['Work', 'Personal', 'Shopping', 'Health', 'Learning', 'Relig
 const STATUSES = ['pending', 'in-progress', 'completed', 'cancelled'];
 const URGENCY_LEVELS = ['low', 'medium', 'high', 'critical'];
 
+const CATEGORY_EMOJIS = {
+  'Work': '💼',
+  'Personal': '🎯',
+  'Shopping': '🛒',
+  'Health': '🏥',
+  'Learning': '📚',
+  'Religion': '🙏',
+  'Other': '📌',
+};
+
 export default function Filters({ onFiltersChange }) {
   function handleCategoryFilter(category) {
     onFiltersChange({ category, status: null, urgency: null });
@@ -35,6 +45,7 @@ export default function Filters({ onFiltersChange }) {
               onClick={() => handleCategoryFilter(cat)}
               title={`Filter by ${cat}`}
             >
+              <span className="filter-emoji">{CATEGORY_EMOJIS[cat]}</span>
               {cat}
             </button>
           ))}
