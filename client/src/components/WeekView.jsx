@@ -144,13 +144,9 @@ export default function WeekView({ tasks, onTaskUpdated, onTaskDeleted }) {
                       {dayTasks.slice(0, 2).map((task) => (
                         <div key={task.id} className={`task-mini status-${task.status}`}>
                           <div className="task-mini-header">
-                            <span className="category-emoji">{categoryEmojis[task.category]}</span>
-                            <span className="task-mini-title">{task.title.substring(0, 16)}</span>
+                            <span className="task-mini-title">{task.title.substring(0, 20)}</span>
                           </div>
                           <div className="task-mini-meta">
-                            <span className={`task-category ${task.category.toLowerCase()}`}>
-                              {task.category}
-                            </span>
                             <span className={`urgency-badge urgency-${task.urgency}`}>
                               <span className="urgency-dot"></span>
                               {task.urgency}
