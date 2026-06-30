@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1782795891779,
+    "title": "Buy milk",
+    "description": "",
+    "category": "Shopping",
+    "status": "pending",
+    "urgency": "medium",
+    "dueDate": "2026-07-01",
+    "createdAt": "2026-06-30T05:04:51.779Z",
+    "updatedAt": "2026-06-30T05:04:51.779Z"
+  },
+  {
+    "id": 1782795983679,
+    "title": "Install CLI",
+    "description": "Install CLI with Papa",
+    "category": "Work",
+    "status": "completed",
+    "urgency": "low",
+    "dueDate": "2026-06-29",
+    "createdAt": "2026-06-30T05:06:23.679Z",
+    "updatedAt": "2026-06-30T05:06:39.823Z"
+  },
+  {
+    "id": 1782796536145,
+    "title": "Markaz",
+    "description": "Going to markaz for 16mi darees",
+    "category": "Work",
+    "status": "pending",
+    "urgency": "medium",
+    "dueDate": "2026-06-30",
+    "createdAt": "2026-06-30T05:15:36.145Z",
+    "updatedAt": "2026-06-30T05:15:36.145Z"
+  }
+]
