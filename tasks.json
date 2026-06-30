@@ -15,22 +15,22 @@
     "title": "Install CLI",
     "description": "Install CLI with Papa",
     "category": "Work",
-    "status": "cancelled",
+    "status": "completed",
     "urgency": "low",
     "dueDate": "2026-06-29",
     "createdAt": "2026-06-30T05:06:23.679Z",
-    "updatedAt": "2026-06-30T22:30:58.448Z"
+    "updatedAt": "2026-06-30T22:37:10.662Z"
   },
   {
     "id": 1782796536145,
     "title": "Markaz",
     "description": "Going to markaz for 16mi darees",
     "category": "Work",
-    "status": "pending",
+    "status": "in-progress",
     "urgency": "medium",
     "dueDate": "2026-06-30",
     "createdAt": "2026-06-30T05:15:36.145Z",
-    "updatedAt": "2026-06-30T05:15:36.145Z"
+    "updatedAt": "2026-06-30T22:35:31.479Z"
   },
   {
     "id": 1782858542905,
@@ -48,11 +48,11 @@
     "title": "Personal Project",
     "description": "Test Personal category",
     "category": "personal",
-    "status": "pending",
+    "status": "completed",
     "urgency": "medium",
     "dueDate": "2026-06-29",
     "createdAt": "2026-06-30T22:29:32.373Z",
-    "updatedAt": "2026-06-30T22:30:22.965Z"
+    "updatedAt": "2026-06-30T22:40:11.995Z"
   },
   {
     "id": 1782858572381,

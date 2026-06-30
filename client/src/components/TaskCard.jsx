@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const STATUSES = ['pending', 'in-progress', 'completed', 'cancelled'];
 const URGENCY_LEVELS = ['low', 'medium', 'high', 'critical'];
@@ -7,6 +7,10 @@ export default function TaskCard({ task, onTaskUpdated, onTaskDeleted }) {
   const [isEditing, setIsEditing] = useState(false);
   const [editData, setEditData] = useState(task);
   const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    setEditData(task);
+  }, [task]);
 
   async function handleUpdate() {
     try {
@@ -44,8 +48,7 @@ export default function TaskCard({ task, onTaskUpdated, onTaskDeleted }) {
     }
   }
 
-  async function handleQuickToggle() {
-    const newStatus = task.status === 'completed' ? 'pending' : 'completed';
+  async function handleStatusChange(newStatus) {
     try {
       const res = await fetch(`/api/tasks/${task.id}`, {
         method: 'PATCH',
@@ -131,13 +134,6 @@ export default function TaskCard({ task, onTaskUpdated, onTaskDeleted }) {
       
       <div className="task-header">
         <div className="task-title-section">
-          <button 
-            onClick={handleQuickToggle}
-            className="quick-toggle"
-            title="Click to toggle completion"
-          >
-            {task.status === 'completed' ? '✓' : '○'}
-          </button>
           <span className="category-emoji">{categoryEmojis[task.category]}</span>
           <h4>{task.title}</h4>
         </div>
@@ -148,10 +144,20 @@ export default function TaskCard({ task, onTaskUpdated, onTaskDeleted }) {
 
       <div className="task-meta">
         <span className={`task-category ${task.category.toLowerCase()}`}>{task.category}</span>
-        <span className={`task-status-badge status-${task.status}`}>
-          <span className="status-dot"></span>
-          {task.status.replace('-', ' ')}
-        </span>
+        
+        <select 
+          value={task.status}
+          onChange={(e) => handleStatusChange(e.target.value)}
+          className={`status-dropdown status-${task.status}`}
+          title="Click to change status"
+        >
+          {STATUSES.map((status) => (
+            <option key={status} value={status}>
+              {status.replace('-', ' ')}
+            </option>
+          ))}
+        </select>
+        
         <span className="task-date">📅 {new Date(task.dueDate).toLocaleDateString()}</span>
       </div>
 

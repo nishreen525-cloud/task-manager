@@ -1168,6 +1168,65 @@ body {
   background: #6b7280;
 }
 
+/* Status Dropdown */
+.status-dropdown {
+  padding: 0.5rem 0.8rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  border: 2px solid;
+  background: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.status-dropdown.status-pending {
+  border-color: #0284c7;
+  color: #0284c7;
+}
+
+.status-dropdown.status-pending:hover,
+.status-dropdown.status-pending:focus {
+  background: rgba(2, 132, 199, 0.1);
+  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.2);
+}
+
+.status-dropdown.status-in-progress {
+  border-color: #d97706;
+  color: #d97706;
+}
+
+.status-dropdown.status-in-progress:hover,
+.status-dropdown.status-in-progress:focus {
+  background: rgba(217, 119, 6, 0.1);
+  box-shadow: 0 2px 8px rgba(217, 119, 6, 0.2);
+}
+
+.status-dropdown.status-completed {
+  border-color: #16a34a;
+  color: #16a34a;
+}
+
+.status-dropdown.status-completed:hover,
+.status-dropdown.status-completed:focus {
+  background: rgba(22, 163, 74, 0.1);
+  box-shadow: 0 2px 8px rgba(22, 163, 74, 0.2);
+}
+
+.status-dropdown.status-cancelled {
+  border-color: #6b7280;
+  color: #6b7280;
+  opacity: 0.8;
+}
+
+.status-dropdown.status-cancelled:hover,
+.status-dropdown.status-cancelled:focus {
+  background: rgba(107, 114, 128, 0.1);
+  box-shadow: 0 2px 8px rgba(107, 114, 128, 0.2);
+  opacity: 1;
+}
+
 @keyframes pulse-dot {
   0%, 100% { transform: scale(1); opacity: 1; }
   50% { transform: scale(1.3); opacity: 0.7; }
