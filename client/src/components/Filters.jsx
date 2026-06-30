@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CATEGORIES = ['Work', 'Personal', 'Shopping', 'Health', 'Learning', 'Other'];
+const CATEGORIES = ['Work', 'Personal', 'Shopping', 'Health', 'Learning', 'Religion', 'Other'];
 const STATUSES = ['pending', 'in-progress', 'completed', 'cancelled'];
 const URGENCY_LEVELS = ['low', 'medium', 'high', 'critical'];
 
@@ -31,7 +31,7 @@ export default function Filters({ onFiltersChange }) {
           {CATEGORIES.map((cat) => (
             <button
               key={cat}
-              className="filter-btn"
+              className={`filter-btn filter-category filter-${cat.toLowerCase()}`}
               onClick={() => handleCategoryFilter(cat)}
               title={`Filter by ${cat}`}
             >

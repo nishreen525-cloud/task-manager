@@ -15,11 +15,11 @@
     "title": "Install CLI",
     "description": "Install CLI with Papa",
     "category": "Work",
-    "status": "completed",
+    "status": "cancelled",
     "urgency": "low",
     "dueDate": "2026-06-29",
     "createdAt": "2026-06-30T05:06:23.679Z",
-    "updatedAt": "2026-06-30T05:06:39.823Z"
+    "updatedAt": "2026-06-30T22:30:58.448Z"
   },
   {
     "id": 1782796536145,
@@ -41,18 +41,18 @@
     "urgency": "high",
     "dueDate": "2026-06-28",
     "createdAt": "2026-06-30T22:29:02.905Z",
-    "updatedAt": "2026-06-30T22:29:02.905Z"
+    "updatedAt": "2026-06-30T22:30:17.997Z"
   },
   {
     "id": 1782858572373,
     "title": "Personal Project",
     "description": "Test Personal category",
     "category": "personal",
-    "status": "in-progress",
+    "status": "pending",
     "urgency": "medium",
     "dueDate": "2026-06-29",
     "createdAt": "2026-06-30T22:29:32.373Z",
-    "updatedAt": "2026-06-30T22:29:32.373Z"
+    "updatedAt": "2026-06-30T22:30:22.965Z"
   },
   {
     "id": 1782858572381,
