@@ -49,10 +49,10 @@
     "description": "Test Personal category",
     "category": "personal",
     "status": "completed",
-    "urgency": "medium",
+    "urgency": "high",
     "dueDate": "2026-06-29",
     "createdAt": "2026-06-30T22:29:32.373Z",
-    "updatedAt": "2026-06-30T22:40:11.995Z"
+    "updatedAt": "2026-06-30T22:56:04.208Z"
   },
   {
     "id": 1782858572381,
