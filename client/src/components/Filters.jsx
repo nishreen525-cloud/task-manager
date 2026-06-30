@@ -47,7 +47,7 @@ export default function Filters({ onFiltersChange }) {
           {STATUSES.map((status) => (
             <button
               key={status}
-              className="filter-btn"
+              className={`filter-btn filter-status filter-status-${status}`}
               onClick={() => handleStatusFilter(status)}
               title={`Filter by ${status}`}
             >
