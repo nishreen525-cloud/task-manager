@@ -44,6 +44,22 @@ export default function TaskCard({ task, onTaskUpdated, onTaskDeleted }) {
     }
   }
 
+  async function handleQuickToggle() {
+    const newStatus = task.status === 'completed' ? 'pending' : 'completed';
+    try {
+      const res = await fetch(`/api/tasks/${task.id}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ status: newStatus }),
+      });
+      if (!res.ok) throw new Error('Failed to update');
+      const updated = await res.json();
+      onTaskUpdated(updated);
+    } catch (err) {
+      alert('Error updating task: ' + err.message);
+    }
+  }
+
   const urgencyColors = {
     low: '#90EE90',
     medium: '#FFD700',
@@ -57,6 +73,7 @@ export default function TaskCard({ task, onTaskUpdated, onTaskDeleted }) {
     Shopping: '🛒',
     Health: '🏥',
     Learning: '📚',
+    Religion: '🙏',
     Other: '📌',
   };
 
@@ -112,6 +129,13 @@ export default function TaskCard({ task, onTaskUpdated, onTaskDeleted }) {
     <div className="task-card" style={{ borderLeftColor: urgencyColors[task.urgency] }}>
       <div className="task-header">
         <div className="task-title-section">
+          <button 
+            onClick={handleQuickToggle}
+            className="quick-toggle"
+            title="Click to toggle completion"
+          >
+            {task.status === 'completed' ? '✓' : '○'}
+          </button>
           <span className="category-emoji">{categoryEmojis[task.category]}</span>
           <h4>{task.title}</h4>
         </div>

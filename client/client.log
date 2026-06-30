@@ -9,3 +9,18 @@
   ➜  Network: use --host to expose
 (node:14224) [DEP0060] DeprecationWarning: The `util._extend` API is deprecated. Please use Object.assign() instead.
 (Use `node --trace-deprecation ...` to show where the warning was created)
+11:11:49 PM [vite] hmr update /src/styles.css
+11:11:54 PM [vite] hmr update /src/styles.css
+11:11:59 PM [vite] hmr update /src/styles.css
+11:12:10 PM [vite] hmr update /src/styles.css
+11:12:14 PM [vite] hmr update /src/styles.css
+11:12:18 PM [vite] hmr update /src/styles.css
+11:12:26 PM [vite] hmr update /src/styles.css
+3:02:24 PM [vite] hmr update /src/components/TaskForm.jsx
+3:03:49 PM [vite] hmr update /src/styles.css
+3:04:17 PM [vite] hmr update /src/components/TaskCard.jsx
+3:04:32 PM [vite] hmr update /src/components/TaskCard.jsx
+3:04:41 PM [vite] hmr update /src/components/TaskCard.jsx
+3:04:47 PM [vite] hmr update /src/styles.css
+3:05:06 PM [vite] hmr update /src/styles.css
+3:05:15 PM [vite] hmr update /src/styles.css

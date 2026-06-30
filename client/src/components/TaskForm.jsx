@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const CATEGORIES = ['Work', 'Personal', 'Shopping', 'Health', 'Learning', 'Other'];
+const CATEGORIES = ['Work', 'Personal', 'Shopping', 'Health', 'Learning', 'Religion', 'Other'];
 const STATUSES = ['pending', 'in-progress', 'completed', 'cancelled'];
 const URGENCY_LEVELS = ['low', 'medium', 'high', 'critical'];
 

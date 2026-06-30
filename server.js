@@ -90,8 +90,8 @@ app.get('/api/filter/urgency/:urgency', (req, res) => {
 // Get all categories
 app.get('/api/categories', (req, res) => {
   try {
-    const categories = getCategories();
-    res.json(categories.map((c) => c.category));
+    const predefinedCategories = ['Work', 'Personal', 'Shopping', 'Health', 'Learning', 'Religion', 'Other'];
+    res.json(predefinedCategories);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
