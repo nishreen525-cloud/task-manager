@@ -7,6 +7,18 @@ const FULL_DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Frid
 export default function WeekView({ tasks, onTaskUpdated, onTaskDeleted }) {
   const [selectedDay, setSelectedDay] = useState(null);
 
+  const categoryEmojis = {
+    Work: '💼',
+    Personal: '🎯',
+    Shopping: '🛒',
+    Health: '🏥',
+    Learning: '📚',
+    Religion: '🙏',
+    Other: '📌',
+  };
+
+  const STATUSES = ['pending', 'in-progress', 'completed', 'cancelled'];
+
   function getTasksByDay(day) {
     return tasks.filter((task) => {
       const taskDate = new Date(task.dueDate);
@@ -39,6 +51,21 @@ export default function WeekView({ tasks, onTaskUpdated, onTaskDeleted }) {
     if (dayTasks.length === 0) return 0;
     const completed = dayTasks.filter((t) => t.status === 'completed').length;
     return Math.round((completed / dayTasks.length) * 100);
+  }
+
+  async function handlePreviewStatusChange(task, newStatus) {
+    try {
+      const res = await fetch(`/api/tasks/${task.id}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ status: newStatus }),
+      });
+      if (!res.ok) throw new Error('Failed to update');
+      const updated = await res.json();
+      onTaskUpdated(updated);
+    } catch (err) {
+      alert('Error updating task: ' + err.message);
+    }
   }
 
   return (
@@ -116,10 +143,32 @@ export default function WeekView({ tasks, onTaskUpdated, onTaskDeleted }) {
                     <div className="task-preview">
                       {dayTasks.slice(0, 2).map((task) => (
                         <div key={task.id} className={`task-mini status-${task.status}`}>
-                          <span className="task-mini-icon">
-                            {task.status === 'completed' ? '✓' : '◆'}
-                          </span>
-                          <span className="task-mini-title">{task.title.substring(0, 18)}</span>
+                          <div className="task-mini-header">
+                            <span className="category-emoji">{categoryEmojis[task.category]}</span>
+                            <span className="task-mini-title">{task.title.substring(0, 16)}</span>
+                          </div>
+                          <div className="task-mini-meta">
+                            <span className={`task-category ${task.category.toLowerCase()}`}>
+                              {task.category}
+                            </span>
+                            <span className={`urgency-badge urgency-${task.urgency}`}>
+                              <span className="urgency-dot"></span>
+                              {task.urgency}
+                            </span>
+                            <select 
+                              value={task.status}
+                              onChange={(e) => handlePreviewStatusChange(task, e.target.value)}
+                              onClick={(e) => e.stopPropagation()}
+                              className={`status-dropdown status-${task.status}`}
+                              title="Click to change status"
+                            >
+                              {STATUSES.map((status) => (
+                                <option key={status} value={status}>
+                                  {status.replace('-', ' ')}
+                                </option>
+                              ))}
+                            </select>
+                          </div>
                         </div>
                       ))}
                       {dayTasks.length > 2 && (
