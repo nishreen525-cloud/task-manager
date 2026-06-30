@@ -757,7 +757,9 @@ body {
 
 /* Urgency Badges */
 .urgency-badge {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
   padding: 0.4rem 0.75rem;
   border-radius: 20px;
   font-size: 0.8rem;
@@ -766,10 +768,22 @@ body {
   white-space: nowrap;
 }
 
+.urgency-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
 .urgency-low {
   background: linear-gradient(135deg, rgba(22, 163, 74, 0.15), rgba(22, 163, 74, 0.1));
   color: #16a34a;
   border: 1px solid rgba(22, 163, 74, 0.2);
+}
+
+.urgency-low .urgency-dot {
+  background: #16a34a;
 }
 
 .urgency-medium {
@@ -778,10 +792,18 @@ body {
   border: 1px solid rgba(217, 119, 6, 0.2);
 }
 
+.urgency-medium .urgency-dot {
+  background: #d97706;
+}
+
 .urgency-high {
   background: linear-gradient(135deg, rgba(220, 38, 38, 0.15), rgba(220, 38, 38, 0.1));
   color: #dc2626;
   border: 1px solid rgba(220, 38, 38, 0.2);
+}
+
+.urgency-high .urgency-dot {
+  background: #dc2626;
 }
 
 .urgency-critical {
@@ -790,6 +812,11 @@ body {
   border: 1px solid rgba(153, 27, 27, 0.2);
   font-weight: 700;
   animation: pulse-critical 2s ease-in-out infinite;
+}
+
+.urgency-critical .urgency-dot {
+  background: #991b1b;
+  animation: pulse-dot 1.5s ease-in-out infinite;
 }
 
 @keyframes pulse-critical {

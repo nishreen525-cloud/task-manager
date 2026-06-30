@@ -137,13 +137,17 @@ export default function TaskCard({ task, onTaskUpdated, onTaskDeleted }) {
           <span className="category-emoji">{categoryEmojis[task.category]}</span>
           <h4>{task.title}</h4>
         </div>
-        <span className={`urgency-badge urgency-${task.urgency}`}>{task.urgency}</span>
       </div>
 
       {task.description && <p className="task-description">{task.description}</p>}
 
       <div className="task-meta">
         <span className={`task-category ${task.category.toLowerCase()}`}>{task.category}</span>
+        
+        <span className={`urgency-badge urgency-${task.urgency}`}>
+          <span className="urgency-dot"></span>
+          {task.urgency}
+        </span>
         
         <select 
           value={task.status}

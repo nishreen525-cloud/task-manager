@@ -16,10 +16,10 @@
     "description": "Install CLI with Papa",
     "category": "Work",
     "status": "completed",
-    "urgency": "low",
+    "urgency": "critical",
     "dueDate": "2026-06-29",
     "createdAt": "2026-06-30T05:06:23.679Z",
-    "updatedAt": "2026-06-30T22:37:10.662Z"
+    "updatedAt": "2026-06-30T22:41:53.577Z"
   },
   {
     "id": 1782796536145,
