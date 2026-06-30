@@ -147,7 +147,7 @@ export default function TaskCard({ task, onTaskUpdated, onTaskDeleted }) {
       {task.description && <p className="task-description">{task.description}</p>}
 
       <div className="task-meta">
-        <span className="task-category">{task.category}</span>
+        <span className={`task-category ${task.category.toLowerCase()}`}>{task.category}</span>
         <span className={`task-status-badge status-${task.status}`}>
           <span className="status-dot"></span>
           {task.status.replace('-', ' ')}

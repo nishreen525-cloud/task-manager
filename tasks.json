@@ -31,5 +31,38 @@
     "dueDate": "2026-06-30",
     "createdAt": "2026-06-30T05:15:36.145Z",
     "updatedAt": "2026-06-30T05:15:36.145Z"
+  },
+  {
+    "id": 1782858542905,
+    "title": "Test Category Colors",
+    "description": "Testing all category color styling",
+    "category": "work",
+    "status": "pending",
+    "urgency": "high",
+    "dueDate": "2026-06-28",
+    "createdAt": "2026-06-30T22:29:02.905Z",
+    "updatedAt": "2026-06-30T22:29:02.905Z"
+  },
+  {
+    "id": 1782858572373,
+    "title": "Personal Project",
+    "description": "Test Personal category",
+    "category": "personal",
+    "status": "in-progress",
+    "urgency": "medium",
+    "dueDate": "2026-06-29",
+    "createdAt": "2026-06-30T22:29:32.373Z",
+    "updatedAt": "2026-06-30T22:29:32.373Z"
+  },
+  {
+    "id": 1782858572381,
+    "title": "Shopping List",
+    "description": "Test Shopping category",
+    "category": "shopping",
+    "status": "completed",
+    "urgency": "low",
+    "dueDate": "2026-07-01",
+    "createdAt": "2026-06-30T22:29:32.381Z",
+    "updatedAt": "2026-06-30T22:29:32.381Z"
   }
 ]

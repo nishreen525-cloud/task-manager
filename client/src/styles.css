@@ -831,10 +831,11 @@ body {
 /* Task Meta Styles */
 .task-meta {
   display: flex;
-  gap: 0.5rem;
-  margin-top: 0.75rem;
+  gap: 0.75rem;
+  margin-top: 1rem;
   font-size: 0.85rem;
   flex-wrap: wrap;
+  align-items: center;
 }
 
 .task-date {
@@ -847,12 +848,106 @@ body {
 }
 
 .task-category {
-  padding: 0.25rem 0.6rem;
-  border-radius: 4px;
+  padding: 0.35rem 0.85rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: inline-block;
+  white-space: nowrap;
+  border: 1px solid;
+}
+
+/* Category Colors - Distinct & Vibrant */
+/* Category Badge Colors - Distinct and Vibrant */
+.task-category {
+  padding: 0.35rem 0.8rem;
+  border-radius: 20px;
   font-size: 0.75rem;
-  font-weight: 500;
-  background: rgba(102, 102, 102, 0.1);
-  color: var(--text-light);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border: 2px solid;
+  transition: all 0.2s ease;
+}
+
+.task-category.work {
+  background: linear-gradient(135deg, #0284c7 0%, #0ea5e9 100%);
+  color: white;
+  border-color: #0284c7;
+  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.2);
+}
+
+.task-category.work:hover {
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+}
+
+.task-category.personal {
+  background: linear-gradient(135deg, #9333ea 0%, #a855f7 100%);
+  color: white;
+  border-color: #9333ea;
+  box-shadow: 0 2px 8px rgba(147, 51, 234, 0.2);
+}
+
+.task-category.personal:hover {
+  box-shadow: 0 4px 12px rgba(147, 51, 234, 0.3);
+}
+
+.task-category.shopping {
+  background: linear-gradient(135deg, #ec4899 0%, #f472b6 100%);
+  color: white;
+  border-color: #ec4899;
+  box-shadow: 0 2px 8px rgba(236, 72, 153, 0.2);
+}
+
+.task-category.shopping:hover {
+  box-shadow: 0 4px 12px rgba(236, 72, 153, 0.3);
+}
+
+.task-category.health {
+  background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);
+  color: white;
+  border-color: #dc2626;
+  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.2);
+}
+
+.task-category.health:hover {
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+}
+
+.task-category.learning {
+  background: linear-gradient(135deg, #14b8a6 0%, #2dd4bf 100%);
+  color: white;
+  border-color: #14b8a6;
+  box-shadow: 0 2px 8px rgba(20, 184, 166, 0.2);
+}
+
+.task-category.learning:hover {
+  box-shadow: 0 4px 12px rgba(20, 184, 166, 0.3);
+}
+
+.task-category.religion {
+  background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%);
+  color: white;
+  border-color: #3b82f6;
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.2);
+}
+
+.task-category.religion:hover {
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.task-category.other {
+  background: linear-gradient(135deg, #6b7280 0%, #9ca3af 100%);
+  color: white;
+  border-color: #6b7280;
+  box-shadow: 0 2px 8px rgba(107, 114, 128, 0.2);
+}
+
+.task-category.other:hover {
+  box-shadow: 0 4px 12px rgba(107, 114, 128, 0.3);
 }
 
 .task-status-badge {
