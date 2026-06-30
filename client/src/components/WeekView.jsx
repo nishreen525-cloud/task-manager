@@ -20,9 +20,13 @@ export default function WeekView({ tasks, onTaskUpdated, onTaskDeleted }) {
   const STATUSES = ['pending', 'in-progress', 'completed', 'cancelled'];
 
   function getTasksByDay(day) {
+    const targetDate = getDateForDay(day);
+    const targetDateString = targetDate.toISOString().split('T')[0]; // YYYY-MM-DD format
+    
     return tasks.filter((task) => {
-      const taskDate = new Date(task.dueDate);
-      return taskDate.getDay() === day;
+      // Compare the date strings directly to avoid timezone issues
+      const taskDateString = task.dueDate; // already in YYYY-MM-DD format
+      return taskDateString === targetDateString;
     });
   }
 
