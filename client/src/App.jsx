@@ -71,7 +71,7 @@ function App() {
   return (
     <div className="app">
       <header className="app-header">
-        <h1>📋 Task Manager</h1>
+        <h1>📋 ✨ Task Manager</h1>
         <p>Week-wise task management system</p>
       </header>
 
