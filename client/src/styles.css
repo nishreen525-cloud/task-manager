@@ -15,10 +15,13 @@
   --text-light: #666666;
   --bg-light: #ffffff;
   --bg-gray: #f7f7f7;
-  --success: #2d8f2d;
-  --warning: #d97b0b;
-  --danger: #c73e1d;
-  --info: #1a5a8f;
+  --success: #16a34a;
+  --warning: #d97706;
+  --danger: #dc2626;
+  --info: #0284c7;
+  --purple: #9333ea;
+  --pink: #ec4899;
+  --teal: #14b8a6;
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
   --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.12);
@@ -150,13 +153,13 @@ body {
 }
 
 .btn-primary {
-  background: var(--primary);
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
   color: white;
   width: 100%;
 }
 
 .btn-primary:hover {
-  background: #0a0a0a;
+  background: linear-gradient(135deg, #0369a1 0%, #0c4a6e 100%);
   box-shadow: var(--shadow-md);
 }
 
@@ -178,21 +181,21 @@ body {
 }
 
 .btn-danger {
-  background: var(--danger);
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
   color: white;
 }
 
 .btn-danger:hover {
-  background: #b53516;
+  background: linear-gradient(135deg, #b91c1c 0%, #991b1b 100%);
 }
 
 .btn-save {
-  background: var(--success);
+  background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
   color: white;
 }
 
 .btn-save:hover {
-  background: #257a25;
+  background: linear-gradient(135deg, #15803d 0%, #166534 100%);
 }
 
 .btn:disabled {
@@ -299,15 +302,71 @@ body {
   background: var(--bg-gray);
 }
 
-/* Task Card */
+/* Task Card with Status */
 .task-card {
-  background: var(--bg-light);
-  border: 1px solid var(--border);
+  background: linear-gradient(135deg, #ffffff 0%, #fafafa 100%);
+  border: 1px solid rgba(229, 229, 229, 0.8);
   border-radius: var(--radius);
   padding: 1rem;
   margin-bottom: 1rem;
   box-shadow: var(--shadow-sm);
   transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Status Bar on Top of Card */
+.task-status-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--text-light);
+  transition: all 0.2s ease;
+}
+
+.task-status-bar[data-status="completed"] {
+  background: linear-gradient(90deg, #16a34a, #10b981);
+}
+
+.task-status-bar[data-status="in-progress"] {
+  background: linear-gradient(90deg, #d97706, #f59e0b);
+  animation: pulse-status 2s ease-in-out infinite;
+}
+
+.task-status-bar[data-status="pending"] {
+  background: linear-gradient(90deg, #0284c7, #06b6d4);
+}
+
+.task-status-bar[data-status="cancelled"] {
+  background: linear-gradient(90deg, #6b7280, #9ca3af);
+  opacity: 0.5;
+}
+
+@keyframes pulse-status {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.task-card.status-card-completed {
+  background: linear-gradient(135deg, #f0fdf4 0%, #f5faf5 100%);
+  border-color: rgba(22, 163, 74, 0.2);
+}
+
+.task-card.status-card-in-progress {
+  background: linear-gradient(135deg, #fffbeb 0%, #fef9f3 100%);
+  border-color: rgba(217, 119, 6, 0.2);
+}
+
+.task-card.status-card-pending {
+  background: linear-gradient(135deg, #f0f9ff 0%, #f5f8fb 100%);
+  border-color: rgba(2, 132, 199, 0.2);
+}
+
+.task-card.status-card-cancelled {
+  background: linear-gradient(135deg, #f3f4f6 0%, #f8f8f8 100%);
+  border-color: rgba(107, 114, 128, 0.2);
 }
 
 .task-card:hover {
@@ -537,6 +596,48 @@ body {
   color: var(--success);
 }
 
+/* Urgency Badges */
+.urgency-badge {
+  display: inline-block;
+  padding: 0.4rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  white-space: nowrap;
+}
+
+.urgency-low {
+  background: linear-gradient(135deg, rgba(22, 163, 74, 0.15), rgba(22, 163, 74, 0.1));
+  color: #16a34a;
+  border: 1px solid rgba(22, 163, 74, 0.2);
+}
+
+.urgency-medium {
+  background: linear-gradient(135deg, rgba(217, 119, 6, 0.15), rgba(217, 119, 6, 0.1));
+  color: #d97706;
+  border: 1px solid rgba(217, 119, 6, 0.2);
+}
+
+.urgency-high {
+  background: linear-gradient(135deg, rgba(220, 38, 38, 0.15), rgba(220, 38, 38, 0.1));
+  color: #dc2626;
+  border: 1px solid rgba(220, 38, 38, 0.2);
+}
+
+.urgency-critical {
+  background: linear-gradient(135deg, rgba(153, 27, 27, 0.15), rgba(153, 27, 27, 0.1));
+  color: #991b1b;
+  border: 1px solid rgba(153, 27, 27, 0.2);
+  font-weight: 700;
+  animation: pulse-critical 2s ease-in-out infinite;
+}
+
+@keyframes pulse-critical {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
 .progress-section {
   display: flex;
   align-items: center;
@@ -754,33 +855,68 @@ body {
   color: var(--text-light);
 }
 
-.task-status {
-  padding: 0.25rem 0.6rem;
-  border-radius: 4px;
-  font-size: 0.75rem;
-  font-weight: 500;
+.task-status-badge {
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
   text-transform: capitalize;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  white-space: nowrap;
 }
 
-.task-status.status-completed {
-  background: rgba(45, 143, 45, 0.1);
-  color: var(--success);
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+  animation: pulse-dot 2s ease-in-out infinite;
 }
 
-.task-status.status-in-progress {
-  background: rgba(217, 123, 11, 0.1);
-  color: var(--warning);
+.task-status-badge.status-completed {
+  background: rgba(22, 163, 74, 0.15);
+  color: #16a34a;
 }
 
-.task-status.status-pending {
-  background: rgba(26, 90, 143, 0.1);
-  color: var(--info);
+.task-status-badge.status-completed .status-dot {
+  background: #16a34a;
 }
 
-.task-status.status-cancelled {
-  background: rgba(102, 102, 102, 0.1);
-  color: var(--text-light);
-  text-decoration: line-through;
+.task-status-badge.status-in-progress {
+  background: rgba(217, 119, 6, 0.15);
+  color: #d97706;
+  animation: none;
+}
+
+.task-status-badge.status-in-progress .status-dot {
+  background: #d97706;
+  animation: pulse-dot 1.5s ease-in-out infinite;
+}
+
+.task-status-badge.status-pending {
+  background: rgba(2, 132, 199, 0.15);
+  color: #0284c7;
+}
+
+.task-status-badge.status-pending .status-dot {
+  background: #0284c7;
+}
+
+.task-status-badge.status-cancelled {
+  background: rgba(107, 114, 128, 0.15);
+  color: #6b7280;
+  opacity: 0.7;
+}
+
+.task-status-badge.status-cancelled .status-dot {
+  background: #6b7280;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.3); opacity: 0.7; }
 }
 
 /* View Controls - Week Navigation */

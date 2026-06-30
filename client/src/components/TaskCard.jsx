@@ -126,7 +126,9 @@ export default function TaskCard({ task, onTaskUpdated, onTaskDeleted }) {
   }
 
   return (
-    <div className="task-card" style={{ borderLeftColor: urgencyColors[task.urgency] }}>
+    <div className={`task-card status-card-${task.status}`} style={{ borderLeftColor: urgencyColors[task.urgency] }}>
+      <div className="task-status-bar" data-status={task.status}></div>
+      
       <div className="task-header">
         <div className="task-title-section">
           <button 
@@ -146,7 +148,10 @@ export default function TaskCard({ task, onTaskUpdated, onTaskDeleted }) {
 
       <div className="task-meta">
         <span className="task-category">{task.category}</span>
-        <span className={`task-status status-${task.status}`}>{task.status.replace('-', ' ')}</span>
+        <span className={`task-status-badge status-${task.status}`}>
+          <span className="status-dot"></span>
+          {task.status.replace('-', ' ')}
+        </span>
         <span className="task-date">📅 {new Date(task.dueDate).toLocaleDateString()}</span>
       </div>
 
